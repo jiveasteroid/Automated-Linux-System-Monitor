@@ -38,6 +38,3 @@ echo ""
 echo "Detection system running. Halt CPU stress with: kill $CPU_PID"
 
 
-
-
-
