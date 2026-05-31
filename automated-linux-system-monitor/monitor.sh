@@ -4,25 +4,28 @@ echo "==============================="
 echo "System Monitor"
 echo "==============================="
 
+#Runs for top 5 CPUs.
 echo ""
-echo "Running Processes"
-ps aux | head -10
+echo "CPU"
+top -bn1 | head -5
 
+#Sorts top 5 live processes.
 echo ""
-echo "Top CPU Processes"
-ps aux --sort=-%cpu | head -10
+echo "Top Processes"
+ps aux --sort=-%cpu | head -5
 
 echo ""
 echo "Memory"
 free -h
 
 echo ""
-echo "Top Memory Processes"
-ps aux --sort=-%mem | head -10
-
-echo ""
 echo "Disk Usage"
-df -h | head -10 
+df -h | head -5
+
+#10 most recent log entries.
+echo ""
+echo "Recent Logs"
+journalctl -n 10 --no-pager 
 
 echo ""
 echo "======== $(date) ========"
